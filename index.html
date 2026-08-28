@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Doctor Appointment Booking System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f6ff;
+            color: #222;
+        }
+
+        header {
+            background-color: #1976d2;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome h2 {
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+
+        .welcome p {
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background-color: #1976d2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #125ca3;
+        }
+
+        .register {
+            background-color: #28a745;
+        }
+
+        .register:hover {
+            background-color: #1e7e34;
+        }
+
+        .doctors {
+            background-color: #ff9800;
+        }
+
+        .doctors:hover {
+            background-color: #e68900;
+        }
+
+        .appointments {
+            background-color: #9c27b0;
+        }
+
+        .appointments:hover {
+            background-color: #7b1fa2;
+        }
+
+        footer {
+            margin-top: 60px;
+            background-color: #1976d2;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Doctor Appointment Booking System</h1>
+
+        <p>
+            Book your doctor appointment easily
+        </p>
+    </header>
+
+    <div class="container">
+
+        <div class="welcome">
+
+            <h2>Welcome</h2>
+
+            <p>
+                Please choose an option below to continue.
+            </p>
+
+            <div class="buttons">
+
+                <!-- Patient Login -->
+                <a href="login.html" class="btn">
+                    Patient Login
+                </a>
+
+                <!-- Patient Registration -->
+                <a href="register.html" class="btn register">
+                    Patient Registration
+                </a>
+
+                <!-- Doctors -->
+                <a href="doctor.html" class="btn doctors">
+                    Doctors
+                </a>
+
+                <!-- My Appointments -->
+                <a href="appointments.html" class="btn appointments">
+                    My Appointments
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+
+        <p>
+            © 2026 Doctor Appointment Booking System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

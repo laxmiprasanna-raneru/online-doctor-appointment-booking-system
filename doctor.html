@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Doctors</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .doctor-card {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+        }
+
+        .doctor-card h2 {
+            color: #2c3e50;
+        }
+
+        .doctor-card p {
+            color: #555;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Available Doctors</h1>
+
+        <div class="doctor-card">
+            <h2>Dr. Ravi Kumar</h2>
+            <p>Specialization: General Physician</p>
+            <p>Available Time: 10:00 AM - 1:00 PM</p>
+        </div>
+
+        <div class="doctor-card">
+            <h2>Dr. Priya Sharma</h2>
+            <p>Specialization: Cardiologist</p>
+            <p>Available Time: 2:00 PM - 5:00 PM</p>
+        </div>
+
+        <div class="doctor-card">
+            <h2>Dr. Anil Kumar</h2>
+            <p>Specialization: Dermatologist</p>
+            <p>Available Time: 5:00 PM - 8:00 PM</p>
+        </div>
+
+
+        <div class="doctor-card">
+
+            <h2>Book Appointment</h2>
+
+            <form id="appointmentForm">
+
+                <label>Patient ID:</label>
+                <input type="number" id="patient_id" value="1" required>
+
+                <label>Select Doctor:</label>
+
+                <select id="doctor_name" required>
+
+                    <option value="">
+                        -- Select Doctor --
+                    </option>
+
+                    <option value="Dr. Ravi Kumar">
+                        Dr. Ravi Kumar
+                    </option>
+
+                    <option value="Dr. Priya Sharma">
+                        Dr. Priya Sharma
+                    </option>
+
+                    <option value="Dr. Anil Kumar">
+                        Dr. Anil Kumar
+                    </option>
+
+                </select>
+
+                <label>Appointment Date:</label>
+                <input type="date" id="appointment_date" required>
+
+                <label>Appointment Time:</label>
+                <input type="time" id="appointment_time" required>
+
+                <button type="submit">
+                    Book Appointment
+                </button>
+
+            </form>
+
+            <p id="message"></p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        document.getElementById("appointmentForm")
+        .addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            const patient_id =
+                document.getElementById("patient_id").value;
+
+            const doctor_name =
+                document.getElementById("doctor_name").value;
+
+            const appointment_date =
+                document.getElementById("appointment_date").value;
+
+            const appointment_time =
+                document.getElementById("appointment_time").value;
+
+
+            const response = await fetch(
+                "http://127.0.0.1:8000/appointments",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        patient_id: Number(patient_id),
+
+                        doctor_name: doctor_name,
+
+                        appointment_date: appointment_date,
+
+                        appointment_time: appointment_time
+
+                    })
+                }
+            );
+
+
+            const data = await response.json();
+
+
+            document.getElementById("message").innerText =
+                data.message;
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Reports</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f7ff;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+
+        .upload-box,
+        .report-card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .report-card h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Patient Health Reports</h1>
+
+    <div class="container">
+
+        <div class="upload-box">
+
+            <h2>Upload Health Report</h2>
+
+            <form>
+                <label>Select Report:</label>
+                <br>
+                <input type="file" name="health_report">
+
+                <br>
+
+                <button type="submit">Upload Report</button>
+            </form>
+
+        </div>
+
+        <div class="report-card">
+
+            <h2>Previous Health Reports</h2>
+
+            <p>Blood Test Report</p>
+            <p>Date: 20-08-2026</p>
+
+            <button>View Report</button>
+
+        </div>
+
+        <div class="report-card">
+
+            <p>Medical Checkup Report</p>
+            <p>Date: 15-08-2026</p>
+
+            <button>View Report</button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Appointments</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .search-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 10px;
+            width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #3498db;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .table-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        #message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>My Appointments</h1>
+
+    <div class="search-box">
+
+        <label for="patient_id">Patient ID:</label>
+
+        <input
+            type="number"
+            id="patient_id"
+            value="1"
+        >
+
+        <button type="button" onclick="getAppointments()">
+            View Appointments
+        </button>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Doctor Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="appointmentsBody">
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <p id="message"></p>
+
+</div>
+
+
+<script>
+
+async function getAppointments() {
+
+    const patientId =
+        document.getElementById("patient_id").value;
+
+    const message =
+        document.getElementById("message");
+
+    const tableBody =
+        document.getElementById("appointmentsBody");
+
+
+    if (!patientId) {
+
+        message.innerText =
+            "Please enter Patient ID";
+
+        return;
+    }
+
+
+    message.innerText = "Loading appointments...";
+
+    tableBody.innerHTML = "";
+
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:8000/appointments/" + patientId
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Server returned " + response.status
+            );
+        }
+
+
+        const appointments =
+            await response.json();
+
+
+        if (appointments.length === 0) {
+
+            message.innerText =
+                "No appointments found";
+
+            return;
+        }
+
+
+        appointments.forEach(function(appointment) {
+
+            const row =
+                document.createElement("tr");
+
+
+            const time =
+                formatTime(appointment.appointment_time);
+
+
+            row.innerHTML = `
+                <td>${appointment.appointment_id}</td>
+                <td>${appointment.doctor_name}</td>
+                <td>${appointment.appointment_date}</td>
+                <td>${time}</td>
+                <td>${appointment.status}</td>
+            `;
+
+
+            tableBody.appendChild(row);
+
+        });
+
+
+        message.innerText =
+            "Appointments loaded successfully";
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        message.innerText =
+            "Unable to load appointments. Please check the backend server.";
+
+    }
+
+}
+
+
+function formatTime(seconds) {
+
+    const totalSeconds =
+        Number(seconds);
+
+    const hours =
+        Math.floor(totalSeconds / 3600);
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+    const ampm =
+        hours >= 12 ? "PM" : "AM";
+
+    const displayHour =
+        hours % 12 || 12;
+
+    return displayHour + ":" +
+           String(minutes).padStart(2, "0") +
+           " " + ampm;
+}
+
+</script>
+
+</body>
+</html>

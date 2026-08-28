@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Reports</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f7ff;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .report-container {
+            width: 80%;
+            margin: 30px auto;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .report-card {
+            background-color: white;
+            padding: 25px;
+            width: 200px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .report-card h2 {
+            margin-top: 0;
+        }
+
+        .details {
+            width: 80%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Appointment Reports</h1>
+
+    <div class="report-container">
+
+        <div class="report-card">
+            <h2>25</h2>
+            <p>Total Appointments</p>
+        </div>
+
+        <div class="report-card">
+            <h2>20</h2>
+            <p>Booked Appointments</p>
+        </div>
+
+        <div class="report-card">
+            <h2>5</h2>
+            <p>Cancelled Appointments</p>
+        </div>
+
+    </div>
+
+    <div class="details">
+
+        <h2>Doctor-wise Appointments</h2>
+
+        <table>
+
+            <tr>
+                <th>Doctor</th>
+                <th>Specialization</th>
+                <th>Total Appointments</th>
+            </tr>
+
+            <tr>
+                <td>Dr. Anil</td>
+                <td>Cardiologist</td>
+                <td>10</td>
+            </tr>
+
+            <tr>
+                <td>Dr. Priya</td>
+                <td>Dentist</td>
+                <td>8</td>
+            </tr>
+
+            <tr>
+                <td>Dr. Ravi</td>
+                <td>General Physician</td>
+                <td>7</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</body>
+</html>
