@@ -37,3 +37,26 @@ online-doctor-appointment-booking-system/
 ├── register.html
 ├── reports.html
 └── README.md
+
+
+## How to Run
+
+### 1. Start the Backend
+
+Open the terminal in the project folder:
+
+```text
+python -m uvicorn main:app --reload
+
+The backend will run at:
+
+http://127.0.0.1:8000
+2. Start the Frontend
+
+Open another terminal in the project folder and run:
+
+python -m http.server 5500
+
+Then open:
+
+http://localhost:5500
