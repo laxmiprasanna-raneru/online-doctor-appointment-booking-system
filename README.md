@@ -23,25 +23,17 @@ A web-based Doctor Appointment Booking System developed using HTML, CSS, JavaScr
 
 ## Project Structure
 
+```text
 online-doctor-appointment-booking-system/
-
-├── appointments.html  
-├── database.py  
-├── doctor.html  
-├── doctor_appointment.sql  
-├── health_reports.html  
-├── index.html  
-├── login.html  
-├── main.py  
-├── register.html  
-├── reports.html  
-└── README.md  
-
-## How to Run
-
-### 1. Start the Backend
-
-Open the terminal and go to the project folder:
-
-```bash
-cd backend
+│
+├── appointments.html
+├── database.py
+├── doctor.html
+├── doctor_appointment.sql
+├── health_reports.html
+├── index.html
+├── login.html
+├── main.py
+├── register.html
+├── reports.html
+└── README.md
