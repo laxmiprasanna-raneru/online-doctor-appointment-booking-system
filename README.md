@@ -1,14 +1,15 @@
 # Online Doctor Appointment Booking System
 
-A web-based Doctor Appointment Booking System that allows patients to register, log in, view available doctors, book appointments, and view their appointments.
+A web-based Doctor Appointment Booking System developed using HTML, CSS, JavaScript, FastAPI, and MySQL.
 
 ## Features
 
 - Patient Registration
 - Patient Login
-- View Available Doctors
+- Doctor Details
 - Book Doctor Appointments
-- View My Appointments
+- View Appointments
+- Health Reports
 - Appointment Status
 
 ## Technologies Used
@@ -22,18 +23,25 @@ A web-based Doctor Appointment Booking System that allows patients to register, 
 
 ## Project Structure
 
-```text
 online-doctor-appointment-booking-system/
-│
-├── backend/
-│   ├── main.py
-│   └── .gitignore
-│
-├── frontend/
-│   ├── index.html
-│   ├── login.html
-│   ├── register.html
-│   ├── doctors.html
-│   └── appointments.html
-│
-└── database/
+
+├── appointments.html  
+├── database.py  
+├── doctor.html  
+├── doctor_appointment.sql  
+├── health_reports.html  
+├── index.html  
+├── login.html  
+├── main.py  
+├── register.html  
+├── reports.html  
+└── README.md  
+
+## How to Run
+
+### 1. Start the Backend
+
+Open the terminal and go to the project folder:
+
+```bash
+cd backend
