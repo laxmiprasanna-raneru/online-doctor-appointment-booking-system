@@ -37,7 +37,7 @@ online-doctor-appointment-booking-system/
 ├── register.html
 ├── reports.html
 └── README.md
-
+```
 
 ## How to Run
 
@@ -47,16 +47,36 @@ Open the terminal in the project folder:
 
 ```text
 python -m uvicorn main:app --reload
+```
 
 The backend will run at:
 
+```text
 http://127.0.0.1:8000
-2. Start the Frontend
+```
+
+### 2. Start the Frontend
 
 Open another terminal in the project folder and run:
 
+```text
 python -m http.server 5500
+```
 
 Then open:
 
+```text
 http://localhost:5500
+```
+
+## Database
+
+This project uses MySQL to store patient and appointment information.
+
+Database credentials are stored using environment variables in a `.env` file.
+
+Sensitive information such as database passwords is not included in the GitHub repository.
+
+## Author
+
+Laxmi Prasanna Raneru
